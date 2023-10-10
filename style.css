@@ -1,0 +1,826 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply styles for the entire body */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-image: url("Background.png"); /* Replace 'your-image.jpg' with the path to your image */
+    background-size: cover; /* Adjust the size of the background image */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    background-attachment: fixed;
+    
+
+
+}
+
+/* Apply styles for the container wrapper */
+.container-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Add spacing between containers */
+    margin: 20px; /* Add margin around the entire container */
+}
+
+/* Apply styles for individual containers */
+.container {
+    flex: 0 0 calc(20% - 20px); /* Distribute containers evenly with spacing */
+    padding: 20px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #20012280, #6f000080);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    margin-left: 10px;
+    font-size: 62px;
+    font-family: 'Open Sans', sans-serif;
+font-family: 'Satisfy', cursive;
+    color: white;
+}
+/* Style for headings */
+h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    color: white; /* Text color for headings */
+}
+
+/* Style for input and buttons */
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.completed {
+   text-decoration: line-through;
+}
+button {
+    background-color: #20012280;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+ .translucent-input {
+        opacity: 1; /* Adjust the opacity value as needed */
+	color: white;
+	background-color: #20012240
+    }
+/* Style for unordered lists */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Style for list items */
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Style for delete button */
+.delete-button {
+    background-color: #ff0000;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.scrollable-list-tasks {
+    height: 450px; /* Set the desired height */
+    overflow: auto;
+}
+.scrollable-list-goals {
+    height: 200px; /* Set the desired height */
+    overflow: auto;
+}
+
+/* Additional styles for the Pomodoro Timer, Digital Clock, Analog Clock, and Pomodoro Clock */
+/* ... your existing CSS code ... */
+.clock-container {
+    margin-top: 40px;
+    text-align: center;
+}
+
+#clock {
+    font-size: 1.5em;
+}
+/* ... your existing CSS code ... */
+.analog-clock-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.clock {
+    width: 150px;
+    height: 150px;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    position: relative;
+    margin: 0 auto;
+}
+
+.clock-face {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate 60s linear infinite;
+}
+
+.hour-hand,
+.minute-hand,
+.second-hand {
+    background-color: #FFFFFF;
+    position: absolute;
+    transform-origin: 50% 100%;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+.hour-hand {
+    width: 4px;
+    height: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-2px);
+}
+
+.minute-hand {
+    width: 3px;
+    height: 60px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-1.5px);
+}
+
+.second-hand {
+    width: 1px;
+    height: 70px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-0.5px);
+    background-color: red;
+}
+
+.center-circle {
+    width: 12px;
+    height: 12px;
+    background-color: #333;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/* ... your existing CSS code ... */
+.pomodoro-container {
+    margin-top:20px;
+    text-align: center;
+}
+
+.pomodoro-clock-container {
+    position: relative;
+}
+
+.pomodoro-circle {
+    width: 180px;
+    height: 180px;
+    border: 2px solid ; /* Circular border */
+    border-radius: 50%; /* Make it a circle */
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pomodoro-clock {
+    width: 180px;
+    height: 180px;
+    border-radius: 10%; /* Make it a circle */
+    perspective: 1000px;
+    margin: 0 auto;
+}
+
+.pomodoro-face {
+    width: 100%;
+    height: 130%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.pomodoro-timer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    animation: rotate 60s linear infinite;
+}
+
+.pomodoro-minutes,
+.pomodoro-seconds {
+    font-size: 50px;
+    font-weight: bold;
+    
+
+     
+}
+
+.pomodoro-controls {
+    width: 100%;
+    position: absolute;
+    top: 115%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#start-pomodoro {
+    background-color: #2ecc71; /* Green color */
+    color: #fffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#start-pomodoro:hover {
+    background-color: #27ae60; /* Darker green on hover */
+}
+
+#stop-pomodoro,
+#reset-pomodoro {
+    background-color: #e74c3c; /* Red color */
+    color: #fffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+#stop-pomodoro:hover,
+#reset-pomodoro:hover {
+    background-color: #c0392b; /* Darker red on hover */
+}
+
+
+
+
+
+
+body {
+    
+    margin-top: 50px;
+    justify-content: center;
+    background-color: #FFFCFF;
+  }
+
+
+
+
+ button {
+    width: 75px;
+    cursor: pointer;
+    box-shadow: 0px 0px 2px gray;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  #header {
+    padding: 100 px;
+    color: #d36c6c;
+    font-size: 26px;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: space-between;
+  }
+  #header button {
+    background-color:#92a1d1;
+  }
+  #cont {
+    width: 770px;
+  }
+  #weekdays {
+    width: 120%;
+    display: flex;
+    color: #247BA0;
+  }
+  #weekdays div {
+    width: 110px;
+    padding: 10px;
+  }
+  #calendar {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .day {
+    width: 100px;
+    padding: 10px;
+    height: 100px;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: #6f000080;
+    margin: 5px;
+    box-shadow: 0px 0px 3px #CBD4C2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .day:hover {
+    background-color: #14f75580;
+  }
+  
+  .day + #currentDay {
+    background-color:#dddddd80;
+  }
+  .event {
+    font-size: 10px;
+    padding: 3px;
+    background-color: #00000080;
+    color: rgb(255, 255, 255);
+    border-radius: 5px;
+    max-height: 55px;
+    overflow: hidden;
+  }
+  .padding {
+    cursor: default !important;
+    background-color: #ffffff80 !important;
+    box-shadow: none !important;
+  }
+  #newEventModal, #deleteEventModal {
+    display: none;
+    z-index: 20;
+    padding: 25px;
+    background-color: #6f000080;
+    box-shadow: 0px 0px 3px black;
+    border-radius: 5px;
+    width: 350px;
+    top: 700px;
+    left: calc(50% - 175px);
+    position: absolute;
+    font-family: sans-serif;
+    
+  }
+  #eventTitleInput {
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 25px;
+    border-radius: 3px;
+    outline: none;
+    border: none;
+    box-shadow: 0px 0px 3px gray;
+  }
+  #eventTitleInput.error {
+    border: 2px solid red;
+  }
+  #cancelButton, #deleteButton {
+    background-color: #d36c6c;
+  }
+  #saveButton, #closeButton {
+    background-color: #92a1d1;
+  }
+  #eventText {
+    font-size: 14px;
+  }
+  #modalBackDrop {
+    display: none;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+    width: 100vw;
+    height: 183vh;
+    position: absolute;
+    background-color: rgba(0,0,0,0.8);
+    
+  }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+*::before, *::after{
+  padding: 0;
+  margin: 0;
+}
+:root{
+  --pink: #ff74a4;
+  --violet: #9f6ea3;
+  --lightblack: #515C6F;
+  --white: #ffffff;
+  --darkwhite: #cecaca;
+  --pinkshadow: #ffcbdd;
+  --lightbshadow: rgba(0,0,0,0.15);
+}
+body{
+    
+   
+  
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  
+
+  
+}
+.wrapper{
+  width: 380px;
+  padding: 25px 30px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 15px;
+  background: #6f000080
+  box-shadow: 0px 6px 15px var(--lightbshadow);
+}
+.wrapper i{
+  cursor: pointer;
+}
+.top-bar, .progress-area .song-timer, 
+.controls, .music-list .header, .music-list ul li{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.top-bar i{
+  font-size: 30px;
+  color: #ffffff;
+}
+.top-bar i:first-child{
+  margin-left: -7px;
+}
+.top-bar span{
+  font-size: 18px;
+  margin-left: -3px;
+  color: #ffffff;
+}
+.img-area{
+  width: 100%;
+  height: 256px;
+  overflow: hidden;
+  margin-top: 25px;
+  border-radius: 15px;
+  box-shadow: 0px 6px 12px var(--lightbshadow);
+}
+.img-area img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.song-details{
+  text-align: center;
+  margin: 30px 0;
+}
+.song-details p{
+  color: var(--lightblack);
+}
+.song-details .name{
+  font-size: 21px;
+  color: #ffffff;
+}
+.song-details .artist{
+  font-size: 18px;
+  opacity: 0.9;
+  line-height: 35px;
+  color: #ffffff;
+
+}
+.progress-area{
+  height: 6px;
+  width: 100%;
+  border-radius: 50px;
+  background: #f0f0f0;
+  cursor: pointer;
+}
+.progress-area .progress-bar{
+  height: inherit;
+  width: 0%;
+  position: relative;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--pink) 0%, var(--violet) 100%);
+}
+.progress-bar::before{
+  content: "";
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  top: 50%;
+  right: -5px;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%);
+  background: inherit;
+  transition: opacity 0.2s ease;
+}
+.progress-area:hover .progress-bar::before{
+  opacity: 1;
+  pointer-events: auto;
+}
+.progress-area .song-timer{
+  margin-top: 2px;
+}
+.song-timer span{
+  font-size: 13px;
+  color: var(--lightblack);
+}
+.controls{
+  margin: 40px 0 5px 0;
+}
+.controls i{
+  font-size: 28px;
+  user-select: none;
+  background: linear-gradient(var(--pink) 0%, var(--violet) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.controls i:nth-child(2),
+.controls i:nth-child(4){
+  font-size: 43px;
+}
+.controls #prev{
+  margin-right: -13px;
+}
+.controls #next{
+  margin-left: -13px;
+}
+.controls .play-pause{
+  height: 54px;
+  width: 54px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(var(--white) 0%, var(--darkwhite) 100%);
+  box-shadow: 0px 0px 5px var(--pink);
+}
+.play-pause::before{
+  position: absolute;
+  content: "";
+  height: 43px;
+  width: 43px;
+  border-radius: inherit;
+  background: linear-gradient(var(--pink) 0%, var(--violet) 100%);
+}
+.play-pause i{
+  height: 43px;
+  width: 43px;
+  line-height: 43px;
+  text-align: center;
+  background: inherit;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: absolute;
+}
+
+.music-list{
+  position: absolute;
+  background: var(--white);
+  width: 100%;
+  left: 0;
+  bottom: -55%;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+  padding: 15px 30px;
+  border-radius: 15px;
+  box-shadow: 0px -5px 10px rgba(0,0,0,0.1);
+  transition: all 0.15s ease-out;
+}
+.music-list.show{
+  bottom: 0;
+  opacity: 1;
+  pointer-events: auto;
+}
+.header .row{
+  display: flex;
+  align-items: center;
+  font-size: 19px;
+  color: var(--lightblack);
+}
+.header .row i{
+  cursor: default;
+}
+.header .row span{
+  margin-left: 5px;
+}
+.header #close{
+  font-size: 22px;
+  color: var(--lightblack);
+}
+.music-list ul{
+  margin: 10px 0;
+  max-height: 260px;
+  overflow: auto;
+}
+.music-list ul::-webkit-scrollbar{
+  width: 0px;
+}
+.music-list ul li{
+  list-style: none;
+  display: flex;
+  cursor: pointer;
+  padding-bottom: 10px;
+  margin-bottom: 5px;
+  color: var(--lightblack);
+  border-bottom: 1px solid #E5E5E5;
+}
+.music-list ul li:last-child{
+  border-bottom: 0px;
+}
+.music-list ul li .row span{
+  font-size: 17px;
+}
+.music-list ul li .row p{
+  opacity: 0.9;
+}
+ul li .audio-duration{
+  font-size: 16px;
+}
+ul li.playing{
+  pointer-events: none;
+  color: var(--violet);
+}
+
+.con-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Add spacing between containers */
+    margin: 20px; /* Add margin around the entire container */
+}
+
+/* Apply styles for individual containers */
+.con{
+    flex: 0 0 calc(20% - 20px); /* Distribute containers evenly with spacing */
+    padding: 20px;
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #20012280, #6f000080);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+
+:root {
+    font-size: 62.5%; /* 1rem = 10px */
+
+    
+ --color-secondary: hsl(358, 78%, 69%);
+    --color-font: hsla(0, 0%, 100%, 0.902);
+
+    --color-shadow: hsl(235, 36%, 35%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    background-color: var(--color-primary);
+    font-size: 1.6rem;
+    font-family: 'Open sans', sans-serif;
+}
+p{
+font-size : 1.8rem;
+font-family: 'Roboto', sans-serif;
+}
+footer {
+font-size: 1.4rem;
+font-family: 'Open sans', sans-serif;
+}
+i,
+h1 {
+    color: var(--color-font);
+    
+}
+
+i {
+    font-size: 3.2rem;
+}
+
+/* ==== CONTENT ==== */
+
+section {
+    display: flex;
+    align-items: center;
+    height: 100%;
+	
+}
+
+
+
+.painel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+    width: 20rem;
+    margin-block: 5rem;
+    padding: 1rem;
+    border-radius: 10rem;
+    -webkit-box-shadow: 0px 0px 15px 10px var(--color-shadow); 
+    box-shadow: 0px 0px 15px 10px var(--color-shadow);
+}
+
+.painel p {
+    opacity: .5;
+    transition: 1s ease-in;
+}
+
+.painel p.active {
+    opacity: 1;
+    color: var(--color-secondary);
+}
+
+.timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 0px 15px 10px var(--color-shadow); 
+    box-shadow: 0px 0px 15px 10px var(--color-shadow);
+}
+
+.circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    background-color: var(--color-secondary);
+    position: relative;
+}
+
+.circle::before {
+    content: '';
+    position: absolute;
+    width: 95%;
+    height: 95%;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+}
+
+.time {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.time p {
+    font-size: 3.6rem;
+}
+
+.time p:nth-of-type(2) {
+    position: relative;
+    top: -.5rem;
+    margin-inline: 1rem;
+}
+
+.controls {
+    margin-top: 3rem;
+}
+
+.controls button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.controls #reset {
+    display: none;
+}
+.about-section {
+    background: linear-gradient(to bottom, #20012280, #6f000080);
+    border-radius: 10px;
+    padding: 20px; /* Add padding to create space around the content */
+    margin-bottom: 20px;
+}

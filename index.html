@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JustDoIt</title>
+    <link rel="icon" href="icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,500;1,800&family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6f3103b13c.js" crossorigin="anonymous"></script>
+</head>
+</head>
+<body>
+<audio id="alarm" src="alarm.mp3"></audio>
+<h1>JustDoIt</h1>
+    <div class="container-wrapper">
+<div class="container">
+    <h2><font color="white"> To-Do List</font></h2>
+    <div class="scrollable-list-tasks">
+        <input type="text" id="taskInput"class="translucent-input" placeholder="Add a new task">
+	<input type="number" id="taskTimer"class="translucent-input" placeholder="Enter timer in minutes">
+        <button id="addTask">Add</button>
+        <ul id="taskList"></ul>
+    </div>
+</div>
+        
+        <div class="container">
+            <section>
+                <div class="container">
+                    <h2>Pomodoro</h2>
+        
+                    <div class="painel">
+                        <p id="work">work</p>
+                        <p id="break">break</p>
+                    </div>
+        
+                    <div class="timer">
+                        <div class="circle">
+                            <div class="time">
+                                <p id="minutes"></p>
+                                <p>:</p>
+                                <p id="seconds"></p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="controls">
+                        <button id="start" onclick="start()"><i class="fa-solid fa-play"></i></button>
+        
+                        <a id="reset" href="./"><i class="fa-solid fa-arrow-rotate-left"></i></a>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+
+       
+         
+        
+        
+        <div class="container">
+            <div class="analog-clock-container">
+                <h2>Analog Clock (IST)</h2>
+                <div class="clock">
+                    <div class="clock-face">
+                        <div class="hour-hand"></div>
+                        <div class="minute-hand"></div>
+                        <div class="second-hand"></div>
+                        <div class="center-circle"></div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="clock-container">
+                <h2>Digital Clock</h2>
+                <div id="clock"></div>
+            </div>
+	<div id="id6716373767b27" a='{"t":"v","v":"1.2","lang":"en","locs":[970],"ssot":"c","sics":"ms","cbkg":"#00000000","cfnt":"rgba(255,255,255,1)","cprb":"#FFFFFF00","cprf":"rgba(255,255,255,1)","eev":"bool","ent":"bool","slfs":22,"slbr":"8","sfnt":"a","slmw":200,"ephw":"bool","edy":"bool"}'>Weather Data Source: <a href="https://sharpweather.com/weather_chennai/30_days/">sharpweather.com/weather_chennai/30_days/</a></div><script async src="https://static1.sharpweather.com/widgetjs/?id=id6716373767b27"></script>
+        </div>
+        <div class="container">
+            <div class="pomodoro-container">
+                <h2>Reminder</h2>
+                <div class="pomodoro-settings">
+                    <label for="custom-minutes">Set Reminder Time: </label>
+                    <input type="number" id="custom-minutes"class="translucent-input" min="1" value="25">
+                    <button id="apply-custom-time">Apply</button>
+                </div>
+                <div class="pomodoro-clock">
+                    <div class="pomodoro-circle"></div>
+                    <div class="pomodoro-face">
+                        <div class="pomodoro-timer" id="pomodoro-timer">
+                            <div class="pomodoro-minutes" id="pomodoro-minutes">25</div>
+                            <div class="pomodoro-seconds" id="pomodoro-seconds">00</div>
+                        </div>
+                        <div class="pomodoro-controls">
+                            <button id="start-pomodoro">Start</button>
+                            <button id="stop-pomodoro">Stop</button>
+                            <button id="reset-pomodoro">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="con-wrapper">
+        <div class="con">
+
+            <div id="cont">
+                <div id="header">
+                    <div id="monthDisplay"></div>
+                    <div>
+                        <button id="backButton">Back</button>
+                        <button id="nextButton">Next</button>
+                    </div>
+                </div>
+
+                <div id="weekdays">
+                    <div>Sunday</div>
+                    <div>Monday</div>
+                    <div>Tuesday</div>
+                    <div>Wednesday</div>
+                    <div>Thursday</div>
+                    <div>Friday</div>
+                    <div>Saturday</div>
+                </div>
+
+                <div id="calendar"></div>
+            </div>
+
+            <div id="newEventModal">
+                <h2>New Event</h2>
+
+                <input id="eventTitleInput"class="translucent-input" placeholder="Event Title" />
+
+                <button id="saveButton">Save</button>
+                <button id="cancelButton">Cancel</button>
+            </div>
+
+            <div id="deleteEventModal">
+                <h2>Event</h2>
+
+                <p id="eventText"></p>
+
+                <button id="deleteButton">Delete</button>
+                <button id="closeButton">Close</button>
+            </div>
+
+            <div id="modalBackDrop"></div>
+        </div>
+
+
+
+        <div class="con">
+            <!--<div class="wrapper">
+                <div class="top-bar">
+                    <i class="material-icons">expand_more</i>
+                    <span>Now Playing</span>
+                    <i class="material-icons">more_horiz</i>
+                </div>
+                <div class="img-area">
+                    <img src="" alt="">
+                </div>
+                <div class="song-details">
+                    <p class="name"></p>
+                    <p class="artist"></p>
+                </div>
+                <div class="progress-area">
+                    <div class="progress-bar">
+                        <audio id="main-audio" src=""></audio>
+                    </div>
+                    <div class="song-timer">
+                        <span class="current-time">0:00</span>
+                        <span class="max-duration">0:00</span>
+                    </div>
+                </div>
+                <div class="controls">
+                    <i id="repeat-plist" class="material-icons" title="Playlist looped">repeat</i>
+                    <i id="prev" class="material-icons">skip_previous</i>
+                    <div class="play-pause">
+                        <i class="material-icons play">play_arrow</i>
+                    </div>
+                    <i id="next" class="material-icons">skip_next</i>
+                    <i id="more-music" class="material-icons">queue_music</i>
+                </div>
+                <div class="music-list">
+                    <div class="header">
+                        <div class="row">
+                            <i class="list material-icons">queue_music</i>
+                            <span>Music list</span>
+                        </div>
+                        <i id="close" class="material-icons">close</i>
+                    </div>
+                    <ul>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>-->
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1JLw7Y5YvlsA10XjaKHTxE?utm_source=generator" width="500" height="357" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+    <h2><font color="white"> Goals</font></h2>
+    <div class="scrollable-list-goals">
+        <input type="text" id="GoalInput" class="translucent-input" placeholder="Enter your goal">
+        <button id="addGoal">Add</button>
+        <ul id="GoalList"></ul>
+</div>
+</div>
+<header>
+	<h2><img src="logo.png"style="width: 140px; height: 140px;"</h2>
+        <h1>About Us</h1>
+    </header>
+    <section class="about-section">
+        <h2>Our Story</h2>
+        <p>At Team Incognito, We are not just a team; we are a family of 7 passionate and creative minds united by a common Motto — Where your Imagination meets Reality. <br>Our name may be "Incognito," but our work speaks volumes..<br> Guided by Rohan A.V, We strive to bring the ultimate experience and create a more productive work life-balance to your Day-to-Day struggles</p>
+        <h2>Our Mission</h2>     
+	<p>At JustDoIt, we're all about making your life simpler and more organized. Say goodbye to forgotten tasks and uncompleted goals. 	With our user-friendly to-do list platform, you can:<br>
+    	Easily add and manage your daily tasks.<br>
+    	Set deadlines and reminders to stay on track.<br>
+    	Prioritize your to-do items for maximum productivity.<br>
+   	 Achieve your goals, one task at a time.</p>
+    </section>
+    <footer>
+        <p>&copy; 2023 Team Incognito. Open Source License.</p>
+    </footer>
+
+
+
+    <!--<script src="music-list.js"></script>-->
+    
+    <script src="script.js"></script>
+</body>
+</html>
