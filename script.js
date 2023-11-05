@@ -649,8 +649,8 @@ function clicked(element){
 let workTittle = document.getElementById('work');
 let breakTittle = document.getElementById('break');
 
-let workTime = 25;
-let breakTime = 5;
+let workTime = 1;
+let breakTime = 1;
 
 let seconds = "00"
 
@@ -676,6 +676,7 @@ function start() {
 
     breakCount = 0;
 
+let audioAlert = document.getElementById('audioAlert');
     // countdown
     let timerFunction = () => {
         //change the display
@@ -696,6 +697,7 @@ function start() {
                     // change the painel
                     workTittle.classList.remove('active');
                     breakTittle.classList.add('active');
+		    audioAlert.play();
                 }else {
                     // continue work
                     workMinutes = workTime;
@@ -704,6 +706,7 @@ function start() {
                     // change the painel
                     breakTittle.classList.remove('active');
                     workTittle.classList.add('active');
+		    audioAlert.play();
                 }
             }
             seconds = 59;
