@@ -824,3 +824,67 @@ section {
     padding: 20px; /* Add padding to create space around the content */
     margin-bottom: 20px;
 }
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/*Extended Features */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8); /* Translucent background */
+}
+
+/* Modal content */
+.modal-content {
+  background: linear-gradient(to bottom, #20012290, #6f000090); /* Semi-translucent */
+  margin: 15% auto;
+  font-size: 20px;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 5px;
+  max-width: 600px;
+  color: #ffffff; /* Black text color */
+}
+
+/* 'Got it' button */
+#gotItButton {
+  background-color: #20012280; /* Change button color as desired */
+  color: #fff; /* White text color for the button */
+  padding: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 15px;
+  display: block;
+  margin: 0 auto; /* Adjust the margin as needed */
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+#gotItButton:hover {
+   background-color: #200122; /* Darker color on hover */
+}
+.uptime-container {
+  background: linear-gradient(to bottom, #20012290, #6f000090); /* Semi-translucent */
+  padding: 5px;
+  border-radius: 5px;
+  margin: 0 auto; /* Center horizontally */
+  width: 350px; /* Adjust width as needed */
+  text-align: center; /* Center text */
+  font-size: 12px;
+  font-family: 'Josefin Sans', sans-serif;
+}

@@ -17,9 +17,21 @@
 </head>
 </head>
 <body>
+<!-- Replace the close button with a 'Got it' button -->
+<div id="disclaimerModal" class="modal">
+  <div class="modal-content">
+    <h2>Disclaimer</h2>
+     <p>This is a work in-progress for the extended feature-set. To open the original site, Download the source code from main branch in github and open index.html</p>
+    <button id="gotItButton">Got it</button>
+  </div>
+</div>
+
 <audio id="alarm" src="alarm.mp3"></audio>
 <audio id="audioAlert" src="switch.mp3"></audio>
-<h1>JustDoIt</h1>
+<h1>JustDoIt 1.1</h1>
+<div class="uptime-container">
+  <h2>Site uptime: <span id="uptime"></span></h2>
+</div>
     <div class="container-wrapper">
 <div class="container">
     <h2><font color="white"> To-Do List</font></h2>
@@ -154,6 +166,12 @@
             </div>
 
             <div id="modalBackDrop"></div>
+    <h2><font color="white"> Goals</font></h2>
+    <div class="scrollable-list-goals">
+        <input type="text" id="GoalInput" class="translucent-input" placeholder="Enter your goal">
+        <button id="addGoal">Add</button>
+        <ul id="GoalList"></ul>
+</div>
         </div>
 
 
@@ -204,28 +222,22 @@
                 </div>
             </div>
         </div>-->
-    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1JLw7Y5YvlsA10XjaKHTxE?utm_source=generator" width="500" height="357" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
-    <h2><font color="white"> Goals</font></h2>
-    <div class="scrollable-list-goals">
-        <input type="text" id="GoalInput" class="translucent-input" placeholder="Enter your goal">
-        <button id="addGoal">Add</button>
-        <ul id="GoalList"></ul>
-</div>
+<h2>Lo-Fi Playlist</h2>
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1JLw7Y5YvlsA10XjaKHTxE?utm_source=generator" width="540" height="407" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<h2>Classical Music</h2>
+<iframe width="540" height="357" src="https://www.youtube-nocookie.com/embed/dwY7w0k3j2Y?si=iyV2NnN-GRip3XBY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 <header>
 	<h2><img src="logo.png"style="width: 140px; height: 140px;"</h2>
-        <h1>About Us</h1>
+        <h1>Why 1.1?</h1>
     </header>
     <section class="about-section">
-        <h2>Our Story</h2>
-        <p>At Team Incognito, We are not just a team; we are a family of 7 passionate and creative minds united by a common Motto — Where your Imagination meets Reality. <br>Our name may be "Incognito," but our work speaks volumes..<br> Guided by Rohan A.V, We strive to bring the ultimate experience and create a more productive work life-balance to your Day-to-Day struggles</p>
-        <h2>Our Mission</h2>     
-	<p>At JustDoIt, we're all about making your life simpler and more organized. Say goodbye to forgotten tasks and uncompleted goals. 	With our user-friendly to-do list platform, you can:<br>
-    	Easily add and manage your daily tasks.<br>
-    	Set deadlines and reminders to stay on track.<br>
-    	Prioritize your to-do items for maximum productivity.<br>
-   	 Achieve your goals, one task at a time.</p>
+        <h2>Our Vision</h2>
+        <p>At Team Incognito, We were Constrained by the severe time limit and the deadline of the eventual project which led to scrapping many features that we envisioned for our eventual website.<br> This is an extension of the site with changes that we are personally making to improve the experience at our own pace without any limits set</p>
+        <h2>Features Added</h2>     
+	<p>An Uptime that tells how long the website has been active<br>
+	Classical Music Player (Courtesy Of Vikki)<br>
+    	...and many more to come! <333</p>
     </section>
     <footer>
         <p>&copy; 2023 Team Incognito. Open Source License.</p>

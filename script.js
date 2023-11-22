@@ -716,3 +716,40 @@ let audioAlert = document.getElementById('audioAlert');
     // start countdown
     setInterval(timerFunction, 1000); // 1000 = 1s
 }
+//Extended Feature scripts
+
+document.addEventListener('DOMContentLoaded', function() {
+  var modal = document.getElementById('disclaimerModal');
+  var gotItButton = document.getElementById('gotItButton');
+
+  // Function to close the modal
+  function closeModal() {
+    modal.style.display = 'none';
+  }
+
+  // Event listener for the 'Got it' button click
+  gotItButton.addEventListener('click', closeModal);
+
+  // Show the modal on page load
+  modal.style.display = 'block';
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  function updateUptime() {
+    var currentTime = new Date().getTime();
+    var pageLoadTime = window.performance.timing.navigationStart;
+    var uptimeSeconds = Math.floor((currentTime - pageLoadTime) / 1000);
+
+    var hours = Math.floor(uptimeSeconds / 3600);
+    var minutes = Math.floor((uptimeSeconds % 3600) / 60);
+    var seconds = uptimeSeconds % 60;
+
+    var uptimeElement = document.getElementById('uptime');
+    uptimeElement.textContent = hours + ' hours ' + minutes + ' min ' + seconds + ' sec';
+  }
+
+  updateUptime(); // Initial call to display uptime
+
+  // Update the uptime every second
+  setInterval(updateUptime, 1000);
+});
