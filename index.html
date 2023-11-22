@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JustDoIt</title>
     <link rel="icon" href="icon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"id="mainStylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
@@ -21,13 +21,17 @@
 <div id="disclaimerModal" class="modal">
   <div class="modal-content">
     <h2>Disclaimer</h2>
-     <p>This is a work in-progress for the extended feature-set. To open the original site, Download the source code from main branch in github and open index.html</p>
+     <p>This is a work in-progress for the extended feature-set. Thus, some things might not work as expected. Download the original source code for the Stable Version.</p>
     <button id="gotItButton">Got it</button>
   </div>
 </div>
-
 <audio id="alarm" src="alarm.mp3"></audio>
 <audio id="audioAlert" src="switch.mp3"></audio>
+<div class="button-container">
+  <button id="toggleStyleButton">
+    <i id="styleIcon" class="fas fa-sun"></i>
+  </button>
+</div>
 <h1>JustDoIt 1.1</h1>
 <div class="uptime-container">
   <h2>Site uptime: <span id="uptime"></span></h2>
@@ -223,7 +227,7 @@
             </div>
         </div>-->
 <h2>Lo-Fi Playlist</h2>
-   <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4uetfQruTQe11peVv57vnN?utm_source=generator" width="100%" height="407" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+ <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1Z9G9snH3SWwLupG1MI1Cy?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 <h2>Classical Music</h2>
 <iframe width="540" height="357" src="https://www.youtube-nocookie.com/embed/dwY7w0k3j2Y?si=iyV2NnN-GRip3XBY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
@@ -233,11 +237,12 @@
     </header>
     <section class="about-section">
         <h2>Our Vision</h2>
-        <p>At Team Incognito, We were Constrained by the severe time limit and the deadline of the eventual project which led to scrapping many features that we envisioned for our eventual website.<br> This is an extension of the site with changes that we are personally making to improve the experience at our own pace without any limits set</p>
+        <p>At Team Incognito, We were Constrained by the severe time limit and the deadline <br>
+	of the eventual project which led to scrapping many features that we envisioned <br> for our eventual website.<br> This is an extension of the site with changes that we are personally making to <br> improve the experience at our own pace without any limits set</p>
         <h2>Features Added</h2>     
 	<p>An Uptime that tells how long the website has been active<br>
 	Classical Music Player (Courtesy Of Vikki)<br>
-	New look?<br>
+	New Theme Selector!! Switch between the orignal theme and the dark theme seamlessly<br>
     	...and many more to come! <333</p>
     </section>
     <footer>
