@@ -33,7 +33,7 @@ body {
     flex: 0 0 calc(20% - 20px); /* Distribute containers evenly with spacing */
     padding: 20px;
     border-radius: 10px;
-    background: linear-gradient(to bottom, #20012280, #6f000080);
+    background: linear-gradient(to bottom, #43c6ac50, #19165450);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 h1 {
@@ -64,7 +64,7 @@ input[type="text"] {
    text-decoration: line-through;
 }
 button {
-    background-color: #20012280;
+      background: linear-gradient(to bottom, #43c6ac, #f8ffae50);
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -174,7 +174,7 @@ li {
     top: 50%;
     left: 50%;
     transform: translateX(-0.5px);
-    background-color: red;
+    background-color: #43c6ac;
 }
 
 .center-circle {
@@ -309,14 +309,11 @@ body {
   
   #header {
     padding: 100 px;
-    color: #d36c6c;
+    color: #f8ffae;
     font-size: 26px;
     font-family: sans-serif;
     display: flex;
     justify-content: space-between;
-  }
-  #header button {
-    background-color:#92a1d1;
   }
   #cont {
     width: 770px;
@@ -324,7 +321,7 @@ body {
   #weekdays {
     width: 120%;
     display: flex;
-    color: #88dbff;
+    color: #f8ffae;
   }
   #weekdays div {
     width: 110px;
@@ -342,7 +339,7 @@ body {
     height: 100px;
     cursor: pointer;
     box-sizing: border-box;
-    background-color: #6f000080;
+    background-color: #6dd5fa20;
     margin: 5px;
     box-shadow: 0px 0px 3px #CBD4C2;
     display: flex;
@@ -350,16 +347,16 @@ body {
     justify-content: space-between;
   }
   .day:hover {
-    background-color: #14f75580;
+    background-color: #f8ffae80;
   }
   
   .day + #currentDay {
-    background-color:#dddddd80;
+    background-color: #f8ffae80;
   }
   .event {
     font-size: 10px;
     padding: 3px;
-    background-color: #00000080;
+    background: linear-gradient(to bottom, #43c6ac50, #19165450);
     color: rgb(255, 255, 255);
     border-radius: 5px;
     max-height: 55px;
@@ -374,7 +371,7 @@ body {
     display: none;
     z-index: 20;
     padding: 25px;
-    background-color: #6f000080;
+    background: linear-gradient(to bottom, #43c6ac50, #19165450);
     box-shadow: 0px 0px 3px black;
     border-radius: 5px;
     width: 350px;
@@ -519,7 +516,7 @@ body{
   width: 0%;
   position: relative;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--pink) 0%, var(--violet) 100%);
+  background: linear-gradient(to bottom, #a8ff78, #78ffd6);
 }
 .progress-bar::before{
   content: "";
@@ -550,10 +547,11 @@ body{
 .controls{
   margin: 40px 0 5px 0;
 }
+/*pomodoro control styles*/
 .controls i{
   font-size: 28px;
   user-select: none;
-  background: linear-gradient(var(--pink) 0%, var(--violet) 100%);
+  background: linear-gradient(to bottom, #fdfc47, #24fe41); 
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -680,7 +678,7 @@ ul li.playing{
     flex: 0 0 calc(20% - 20px); /* Distribute containers evenly with spacing */
     padding: 20px;
     border-radius: 10px;
-    background: linear-gradient(to bottom, #20012280, #6f000080);
+    background: linear-gradient(to bottom, #43c6ac50, #19165450);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
@@ -689,10 +687,10 @@ ul li.playing{
     font-size: 62.5%; /* 1rem = 10px */
 
     
- --color-secondary: hsl(358, 78%, 69%);
-    --color-font: hsla(0, 0%, 100%, 0.902);
+ --color-secondary: hsl(181, 70%, 45%);
+    --color-font: hsl(65, 100%, 84%);
 
-    --color-shadow: hsl(235, 36%, 35%);
+    --color-shadow:	hsl(229, 100%, 13%);
 }
 
 * {
@@ -755,7 +753,7 @@ section {
 
 .painel p.active {
     opacity: 1;
-    color: var(--color-secondary);
+    color: var(--color-font);
 }
 
 .timer {
@@ -819,7 +817,7 @@ section {
     display: none;
 }
 .about-section {
-    background: linear-gradient(to bottom, #20012280, #6f000080);
+    background: linear-gradient(to bottom, #43c6ac50, #19165450);
     border-radius: 10px;
     padding: 20px; /* Add padding to create space around the content */
     margin-bottom: 20px;
@@ -850,7 +848,7 @@ section {
 
 /* Modal content */
 .modal-content {
-  background: linear-gradient(to bottom, #20012290, #6f000090); /* Semi-translucent */
+  background: linear-gradient(to bottom, #43c6ac50, #19165450); /* Semi-translucent */
   margin: 15% auto;
   font-size: 20px;
   padding: 20px;
@@ -862,7 +860,7 @@ section {
 
 /* 'Got it' button */
 #gotItButton {
-  background-color: #20012280; /* Change button color as desired */
+  background-color: #43c6ac; /* Change button color as desired */
   color: #fff; /* White text color for the button */
   padding: 10px 10px;
   border: none;
@@ -876,10 +874,10 @@ section {
 }
 
 #gotItButton:hover {
-   background-color: #200122; /* Darker color on hover */
+   background-color: #19165450; /* Darker color on hover */
 }
 .uptime-container {
-  background: linear-gradient(to bottom, #20012290, #6f000090); /* Semi-translucent */
+  background: linear-gradient(to bottom, #43c6ac70, #19165450); /* Semi-translucent */
   padding: 5px;
   border-radius: 5px;
   margin: 0 auto; /* Center horizontally */
@@ -887,4 +885,9 @@ section {
   text-align: center; /* Center text */
   font-size: 12px;
   font-family: 'Josefin Sans', sans-serif;
+}
+.pomodoro-container{
+    flex: 0 0 calc(20% - 20px); /* Distribute containers evenly with spacing */
+    padding: 20px;
+    border-radius: 10px;
 }
