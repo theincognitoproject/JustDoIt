@@ -31,10 +31,17 @@
   <button id="toggleStyleButton">
     <i id="styleIcon" class="fas fa-sun"></i>
   </button>
+<button id="changeNameButton"><i class="fas fa-user-edit"></i></button>
 </div>
-<h1>JustDoIt 1.1</h1>
-<div class="uptime-container">
-  <h2>Site uptime: <span id="uptime"></span></h2>
+<!-- Add an input field for entering the name -->
+<div class="input-container">
+    <div id="nameInput">
+      <input type="text" id="userNameInput" placeholder="Enter your name here..." />
+      <button id="saveNameButton">Save</button>
+    </div>
+  </div>
+<div id="greetingMessage">
+  <p id="greetingMessage">Hello, Guest!</p>
 </div>
     <div class="container-wrapper">
 <div class="container">
@@ -233,7 +240,10 @@
 </div>
 <header>
 	<h2><img src="logo.png"style="width: 140px; height: 140px;"</h2>
-        <h1>Why 1.1?</h1>
+        <h1>JustDoIt 1.1</h1>
+<div class="uptime-container">
+  <h2>Site uptime: <span id="uptime"></span></h2>
+</div>
     </header>
     <section class="about-section">
         <h2>Our Vision</h2>
@@ -243,6 +253,7 @@
 	<p>An Uptime that tells how long the website has been active<br>
 	Classical Music Player (Courtesy Of Vikki)<br>
 	New Theme Selector!! Switch between the orignal theme and the dark theme seamlessly<br>
+	Personalized Greetings with your own name<br>
     	...and many more to come! <333</p>
     </section>
     <footer>

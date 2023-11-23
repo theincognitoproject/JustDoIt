@@ -573,3 +573,30 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+document.addEventListener("DOMContentLoaded", function () {
+  const changeNameButton = document.getElementById("changeNameButton");
+  const nameInput = document.getElementById("nameInput");
+  const userNameInput = document.getElementById("userNameInput");
+  const saveNameButton = document.getElementById("saveNameButton");
+  const greetingMessage = document.getElementById("greetingMessage");
+
+  changeNameButton.addEventListener("click", function () {
+    nameInput.style.display = "block";
+  });
+
+  saveNameButton.addEventListener("click", function () {
+    let userName = userNameInput.value.trim();
+    if (userName === "") {
+      userName = "Guest";
+    }
+    localStorage.setItem("userName", userName);
+    greetingMessage.textContent = `Hello, ${userName}!`;
+    nameInput.style.display = "none";
+  });
+
+  const storedName = localStorage.getItem("userName");
+  if (storedName) {
+    greetingMessage.textContent = `Hello, ${storedName}!`;
+    nameInput.style.display = "none"; // Hide input if name is already stored
+  }
+});
