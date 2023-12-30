@@ -847,25 +847,6 @@ section {
   max-width: 600px;
   color: #ffffff; /* Black text color */
 }
-
-/* 'Got it' button */
-#gotItButton {
-  background-color: red; /* Change button color as desired */
-  color: #fff; /* White text color for the button */
-  padding: 10px 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 15px;
-  margin-top: 15px;
-  display: block;
-  margin: 0 auto; /* Adjust the margin as needed */
-  font-family: 'Josefin Sans', sans-serif;
-}
-
-#gotItButton:hover {
-   background-color: #19165450; /* Darker color on hover */
-}
 .uptime-container {
   background: linear-gradient(to bottom, #20012280, #6f000080); /* Semi-translucent */
   padding: 10px;
