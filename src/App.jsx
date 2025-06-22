@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import Header from './components/Header';
+import TodoList from './components/TodoList';
+import PomodoroTimer from './components/PomodoroTimer';
+import { AnalogClock, DigitalClock } from './components/Clock';
+import ReminderTimer from './components/ReminderTimer';
+import Calendar from './components/Calendar';
+import MusicPlayer from './components/MusicPlayer';
+import GoalList from './components/GoalList';
+import WeatherWidget from './components/WeatherWidget';
+import AboutSection from './components/AboutSection';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="App">
+      <Header />
+      
+      <div className="container-wrapper">
+        <TodoList />
+        <PomodoroTimer />
+        
+        <div className="container">
+          <AnalogClock />
+          <DigitalClock />
+          <WeatherWidget />
+        </div>
+        
+        <ReminderTimer />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      
+      <div className="con-wrapper">
+        <Calendar />
+        <MusicPlayer />
+        <GoalList />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      
+      <AboutSection />
+    </div>
+  );
 }
 
-export default App
+export default App;
