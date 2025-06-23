@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from './components/Header';
+import Header from './components/header';
 import TodoList from './components/TodoList';
 import PomodoroTimer from './components/PomodoroTimer';
 import AnalogClock from "./components/Clock/AnalogClock";
 import DigitalClock from "./components/Clock/DigitalClock";
 import ReminderTimer from './components/ReminderTimer';
-import Calendar from './components/Calendar';
+import Calendar from './components/Calender';
 import MusicPlayer from './components/MusicPlayer';
 import GoalList from './components/GoalList';
 import WeatherWidget from './components/WeatherWidget';
@@ -32,10 +32,8 @@ function App() {
       <div className="con-wrapper">
         <Calendar />
         <MusicPlayer />
-        <GoalList />
       </div>
       
-      <AboutSection />
     </div>
   );
 }
