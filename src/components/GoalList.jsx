@@ -1,57 +1,73 @@
-import React, { useEffect, useRef } from "react";
-import "./AnalogClock.css"; // You’ll add styles separately
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const AnalogClock = () => {
-  const hourRef = useRef();
-  const minuteRef = useRef();
-  const secondRef = useRef();
+const GoalList = () => {
+  const [goals, setGoals] = useState([]);
+  const [newGoal, setNewGoal] = useState("");
 
+  // Fetch goals from server on load
   useEffect(() => {
-    const updateClock = () => {
-      const now = new Date();
-
-      // Convert UTC time to IST (UTC+5:30)
-      let ISTHours = now.getUTCHours() + 5;
-      let ISTMinutes = now.getUTCMinutes() + 30;
-      let ISTSeconds = now.getUTCSeconds();
-
-      if (ISTMinutes >= 60) {
-        ISTMinutes -= 60;
-        ISTHours += 1;
-      }
-
-      if (ISTHours >= 24) {
-        ISTHours -= 24;
-      }
-
-      const secondDeg = (ISTSeconds / 60) * 360;
-      const minuteDeg = ((ISTMinutes + ISTSeconds / 60) / 60) * 360;
-      const hourDeg = ((ISTHours % 12 + ISTMinutes / 60) / 12) * 360;
-
-      secondRef.current.style.transform = `translate(-50%, -100%) rotate(${secondDeg}deg)`;
-      minuteRef.current.style.transform = `translate(-50%, -100%) rotate(${minuteDeg}deg)`;
-      hourRef.current.style.transform = `translate(-50%, -100%) rotate(${hourDeg}deg)`;
-    };
-
-    updateClock();
-    const interval = setInterval(updateClock, 1000);
-
-    return () => clearInterval(interval);
+    axios.get("/api/goals")
+      .then(res => setGoals(res.data))
+      .catch(err => console.error("Error fetching goals:", err));
   }, []);
 
+  // Add goal to server
+  const addGoal = async () => {
+    if (!newGoal.trim()) return alert("Please enter a goal.");
+    const res = await axios.post("/api/goals", { goal: newGoal });
+    setGoals(res.data);
+    setNewGoal("");
+  };
+
+  // Delete goal from server
+  const deleteGoal = async (goalToDelete) => {
+    const res = await axios.delete(`/api/goals/${encodeURIComponent(goalToDelete)}`);
+    setGoals(res.data);
+  };
+
   return (
-    <div className="analog-clock-container">
-      <h2>Analog Clock (IST)</h2>
-      <div className="clock">
-        <div className="clock-face">
-          <div className="hour-hand" ref={hourRef}></div>
-          <div className="minute-hand" ref={minuteRef}></div>
-          <div className="second-hand" ref={secondRef}></div>
-          <div className="center-circle"></div>
-        </div>
+    <div className="max-w-md mx-auto mt-12 p-6 rounded-xl shadow-lg bg-gray-900 text-white">
+      <h2 className="text-3xl font-bold mb-6 text-center">🎯 Goal List</h2>
+
+      <div className="flex gap-2 mb-4">
+        <input
+          type="text"
+          value={newGoal}
+          onChange={(e) => setNewGoal(e.target.value)}
+          placeholder="Type a new goal..."
+          className="flex-1 px-4 py-2 rounded-md text-black focus:outline-none"
+        />
+        <button
+          onClick={addGoal}
+          className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md"
+        >
+          Add
+        </button>
       </div>
+
+      <ul className="space-y-3">
+        {goals.length === 0 ? (
+          <li className="text-gray-400 italic text-center">No goals yet. Start adding!</li>
+        ) : (
+          goals.map((goal, index) => (
+            <li
+              key={index}
+              className="flex justify-between items-center bg-gray-800 px-4 py-2 rounded-md shadow-sm"
+            >
+              <span>{goal}</span>
+              <button
+                onClick={() => deleteGoal(goal)}
+                className="text-sm bg-red-600 hover:bg-red-700 px-3 py-1 rounded-md"
+              >
+                Delete
+              </button>
+            </li>
+          ))
+        )}
+      </ul>
     </div>
   );
 };
 
-export default AnalogClock;
+export default GoalList;
