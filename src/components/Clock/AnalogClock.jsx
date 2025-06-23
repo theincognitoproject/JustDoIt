@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import "./AnalogClock.css"; // You’ll add styles separately
 
 const AnalogClock = () => {
   const hourRef = useRef();
@@ -10,7 +9,6 @@ const AnalogClock = () => {
     const updateClock = () => {
       const now = new Date();
 
-      // Convert UTC time to IST (UTC+5:30)
       let ISTHours = now.getUTCHours() + 5;
       let ISTMinutes = now.getUTCMinutes() + 30;
       let ISTSeconds = now.getUTCSeconds();
@@ -19,7 +17,6 @@ const AnalogClock = () => {
         ISTMinutes -= 60;
         ISTHours += 1;
       }
-
       if (ISTHours >= 24) {
         ISTHours -= 24;
       }
@@ -35,20 +32,30 @@ const AnalogClock = () => {
 
     updateClock();
     const interval = setInterval(updateClock, 1000);
-
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="analog-clock-container">
-      <h2>Analog Clock (IST)</h2>
-      <div className="clock">
-        <div className="clock-face">
-          <div className="hour-hand" ref={hourRef}></div>
-          <div className="minute-hand" ref={minuteRef}></div>
-          <div className="second-hand" ref={secondRef}></div>
-          <div className="center-circle"></div>
-        </div>
+    <div className="text-center mt-10">
+      <h2 className="text-2xl font-semibold text-white mb-4">Analog Clock (IST)</h2>
+      <div className="relative w-40 h-40 mx-auto rounded-full border-4 border-white bg-black shadow-inner">
+        {/* Hour Hand */}
+        <div
+          ref={hourRef}
+          className="absolute w-1 h-16 bg-white top-1/2 left-1/2 origin-bottom transform -translate-x-1/2 -translate-y-full"
+        ></div>
+        {/* Minute Hand */}
+        <div
+          ref={minuteRef}
+          className="absolute w-0.5 h-20 bg-white top-1/2 left-1/2 origin-bottom transform -translate-x-1/2 -translate-y-full"
+        ></div>
+        {/* Second Hand */}
+        <div
+          ref={secondRef}
+          className="absolute w-px h-24 bg-red-500 top-1/2 left-1/2 origin-bottom transform -translate-x-1/2 -translate-y-full"
+        ></div>
+        {/* Center Circle */}
+        <div className="absolute w-3 h-3 bg-gray-300 rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"></div>
       </div>
     </div>
   );
