@@ -60,6 +60,9 @@ const AnalogClock = () => {
           );
         })}
 
+        {/* DEBUG TEST HAND — should always show */}
+        <div className="absolute top-1/2 left-1/2 w-[6px] h-24 bg-red-600 z-[60] -translate-x-1/2 -translate-y-full"></div>
+
         {/* Hour Hand */}
         <div
           ref={hourRef}
@@ -101,6 +104,7 @@ const AnalogClock = () => {
 };
 
 export default AnalogClock;
+
 
 
 
