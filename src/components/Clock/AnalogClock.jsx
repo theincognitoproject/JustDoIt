@@ -24,12 +24,9 @@ const AnalogClock = () => {
       const minuteDeg = ((ISTMinutes + ISTSeconds / 60) / 60) * 360;
       const hourDeg = ((ISTHours % 12 + ISTMinutes / 60) / 12) * 360;
 
-      if (hourRef.current)
-        hourRef.current.style.transform = `rotate(${hourDeg}deg)`;
-      if (minuteRef.current)
-        minuteRef.current.style.transform = `rotate(${minuteDeg}deg)`;
-      if (secondRef.current)
-        secondRef.current.style.transform = `rotate(${secondDeg}deg)`;
+      if (hourRef.current) hourRef.current.style.transform = `rotate(${hourDeg}deg)`;
+      if (minuteRef.current) minuteRef.current.style.transform = `rotate(${minuteDeg}deg)`;
+      if (secondRef.current) secondRef.current.style.transform = `rotate(${secondDeg}deg)`;
     };
 
     updateClock();
@@ -66,41 +63,45 @@ const AnalogClock = () => {
         {/* Hour Hand */}
         <div
           ref={hourRef}
-          className="absolute top-1/2 left-1/2 w-[6px] h-20 bg-white z-30"
+          className="absolute w-[6px] h-20 bg-white top-1/2 left-1/2 rounded-sm"
           style={{
-            transformOrigin: "bottom",
             transform: "rotate(0deg)",
+            transformOrigin: "bottom center",
+            zIndex: 20,
           }}
         ></div>
 
         {/* Minute Hand */}
         <div
           ref={minuteRef}
-          className="absolute top-1/2 left-1/2 w-[3px] h-28 bg-white z-30"
+          className="absolute w-[4px] h-28 bg-white top-1/2 left-1/2 rounded-sm"
           style={{
-            transformOrigin: "bottom",
             transform: "rotate(0deg)",
+            transformOrigin: "bottom center",
+            zIndex: 30,
           }}
         ></div>
 
         {/* Second Hand */}
         <div
           ref={secondRef}
-          className="absolute top-1/2 left-1/2 w-[2px] h-32 bg-red-500 z-40"
+          className="absolute w-[2px] h-32 bg-red-500 top-1/2 left-1/2"
           style={{
-            transformOrigin: "bottom",
             transform: "rotate(0deg)",
+            transformOrigin: "bottom center",
+            zIndex: 40,
           }}
         ></div>
 
         {/* Center Dot */}
-        <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 z-50"></div>
+        <div className="absolute w-4 h-4 bg-white rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50"></div>
       </div>
     </div>
   );
 };
 
 export default AnalogClock;
+
 
 
 
