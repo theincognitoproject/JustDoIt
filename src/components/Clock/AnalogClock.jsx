@@ -24,9 +24,12 @@ const AnalogClock = () => {
       const minuteDeg = ((ISTMinutes + ISTSeconds / 60) / 60) * 360;
       const hourDeg = ((ISTHours % 12 + ISTMinutes / 60) / 12) * 360;
 
-      if (secondRef.current) secondRef.current.style.transform = `rotate(${secondDeg}deg)`;
-      if (minuteRef.current) minuteRef.current.style.transform = `rotate(${minuteDeg}deg)`;
-      if (hourRef.current) hourRef.current.style.transform = `rotate(${hourDeg}deg)`;
+      if (hourRef.current)
+        hourRef.current.style.transform = `rotate(${hourDeg}deg)`;
+      if (minuteRef.current)
+        minuteRef.current.style.transform = `rotate(${minuteDeg}deg)`;
+      if (secondRef.current)
+        secondRef.current.style.transform = `rotate(${secondDeg}deg)`;
     };
 
     updateClock();
@@ -35,21 +38,21 @@ const AnalogClock = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center mt-10 mb-12">
-      <h2 className="text-2xl font-bold text-white mb-6">Analog Clock (IST)</h2>
+    <div className="flex flex-col items-center justify-center mt-10">
+      <h2 className="text-3xl font-bold text-white mb-6">Analog Clock (IST)</h2>
 
-      <div className="relative w-64 h-64 bg-black border-[6px] border-white rounded-full shadow-xl">
-        {/* Clock Numbers */}
+      <div className="relative w-80 h-80 bg-black border-[6px] border-white rounded-full shadow-lg">
+        {/* Numbers */}
         {[...Array(12)].map((_, i) => {
           const angle = (i + 1) * 30;
           return (
             <div
               key={i}
-              className="absolute top-1/2 left-1/2 text-white text-sm font-semibold"
+              className="absolute top-1/2 left-1/2 text-white text-sm font-bold"
               style={{
                 transform: `
                   rotate(${angle}deg)
-                  translate(0, -110px)
+                  translate(0, -120px)
                   rotate(-${angle}deg)
                 `,
                 transformOrigin: "center",
@@ -60,33 +63,45 @@ const AnalogClock = () => {
           );
         })}
 
-        {/* Hands */}
+        {/* Hour Hand */}
         <div
           ref={hourRef}
-          className="absolute top-1/2 left-1/2 w-[6px] h-20 bg-white origin-bottom z-20"
-          style={{ transform: "rotate(0deg)", transformOrigin: "bottom" }}
+          className="absolute top-1/2 left-1/2 w-[6px] h-20 bg-white z-30"
+          style={{
+            transformOrigin: "bottom",
+            transform: "rotate(0deg)",
+          }}
         ></div>
 
+        {/* Minute Hand */}
         <div
           ref={minuteRef}
-          className="absolute top-1/2 left-1/2 w-[3px] h-28 bg-white origin-bottom z-20"
-          style={{ transform: "rotate(0deg)", transformOrigin: "bottom" }}
+          className="absolute top-1/2 left-1/2 w-[3px] h-28 bg-white z-30"
+          style={{
+            transformOrigin: "bottom",
+            transform: "rotate(0deg)",
+          }}
         ></div>
 
+        {/* Second Hand */}
         <div
           ref={secondRef}
-          className="absolute top-1/2 left-1/2 w-[2px] h-32 bg-red-500 origin-bottom z-30"
-          style={{ transform: "rotate(0deg)", transformOrigin: "bottom" }}
+          className="absolute top-1/2 left-1/2 w-[2px] h-32 bg-red-500 z-40"
+          style={{
+            transformOrigin: "bottom",
+            transform: "rotate(0deg)",
+          }}
         ></div>
 
-        {/* Center Circle */}
-        <div className="absolute w-4 h-4 bg-white rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40"></div>
+        {/* Center Dot */}
+        <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 z-50"></div>
       </div>
     </div>
   );
 };
 
 export default AnalogClock;
+
 
 
 
