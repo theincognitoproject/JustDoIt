@@ -30,9 +30,9 @@ const DigitalClock = () => {
   }, []);
 
   return (
-    <div className="text-center mt-12">
-      <h2 className="text-2xl font-bold text-white mb-3">🕒 Digital Clock (IST)</h2>
-      <div className="bg-gray-900 text-green-400 text-4xl font-mono px-8 py-4 rounded-lg shadow-md inline-block">
+    <div className="text-white p-4 rounded-lg flex flex-col items-center justify-center h-full">
+      <h2 className="text-xl font-bold mb-2">Digital Clock</h2>
+      <div className="text-5xl font-mono">
         {time}
       </div>
     </div>

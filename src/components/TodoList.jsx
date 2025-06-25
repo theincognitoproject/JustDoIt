@@ -84,43 +84,62 @@ const TodoList = () => {
   }, [tasks]); // Re-run effect when tasks change
 
   return (
-    <div>
-      <h2>Todo List</h2>
-      <input
-        type="text"
-        id="taskInput"
-        placeholder="Add a new task"
-        value={taskInput}
-        onChange={(e) => setTaskInput(e.target.value)}
-      />
-      <input
-        type="number"
-        id="taskTimer"
-        placeholder="Timer in minutes (optional)"
-        value={taskTimerInput}
-        onChange={(e) => setTaskTimerInput(e.target.value)}
-      />
-      <button onClick={handleAddTask}>Add Task</button>
-      <ul id="taskList">
+    <div className="text-white rounded-lg h-full flex flex-col">
+      <h2 className="text-2xl font-bold mb-4 text-center">To-Do List</h2>
+      <div className="flex gap-2 mb-4">
+        <input
+          type="text"
+          id="taskInput"
+          placeholder="Add a new task"
+          value={taskInput}
+          onChange={(e) => setTaskInput(e.target.value)}
+          className="flex-grow p-2 rounded-lg bg-transparent border border-gray-400 focus:outline-none focus:border-white"
+        />
+        <input
+          type="number"
+          id="taskTimer"
+          placeholder="Timer (min)"
+          value={taskTimerInput}
+          onChange={(e) => setTaskTimerInput(e.target.value)}
+          className="w-24 p-2 rounded-lg bg-transparent border border-gray-400 focus:outline-none focus:border-white"
+        />
+        <button 
+          onClick={handleAddTask} 
+          className="p-2 rounded-lg bg-white bg-opacity-20 hover:bg-opacity-30 border border-gray-400"
+        >
+          Add
+        </button>
+      </div>
+      <ul id="taskList" className="space-y-2 overflow-y-auto flex-grow">
         {tasks.map((task, index) => (
-          <li key={index}>
-            <input
-              type="checkbox"
-              checked={task.completed}
-              onChange={() => handleToggleComplete(index)}
-            />
-            <span style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
-              {task.text}
-            </span>
-            {!task.completed && task.timer > 0 && (
-              <span>
-                {` ${Math.floor(task.timer / 60)} min ${task.timer % 60} sec`}
+          <li key={index} className="flex items-center justify-between p-2 rounded-lg bg-white bg-opacity-10">
+            <div className="flex items-center gap-2">
+              <input
+                type="checkbox"
+                checked={task.completed}
+                onChange={() => handleToggleComplete(index)}
+                className="form-checkbox h-5 w-5 text-pink-500 bg-transparent rounded border-gray-400 focus:ring-pink-500"
+              />
+              <span style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
+                {task.text}
               </span>
-            )}
-             {!task.completed && task.timer === 0 && task.timerInterval === null && (
-                <span>Time's up!</span>
-            )}
-            <button onClick={() => handleDeleteTask(index)}>Delete</button>
+            </div>
+            <div className="flex items-center gap-2">
+              {!task.completed && task.timer > 0 && (
+                <span>
+                  {`${Math.floor(task.timer / 60)}m ${task.timer % 60}s`}
+                </span>
+              )}
+               {!task.completed && task.timer === 0 && task.timerInterval === null && (
+                  <span className="text-red-500">Time's up!</span>
+              )}
+              <button 
+                onClick={() => handleDeleteTask(index)} 
+                className="p-1 rounded-full bg-red-500 hover:bg-red-600"
+              >
+                Delete
+              </button>
+            </div>
           </li>
         ))}
       </ul>

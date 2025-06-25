@@ -52,75 +52,63 @@ function ReminderTimer() {
   const applyCustomTime = () => {
     if (minutesInput >= 1) {
       setTime({ minutes: minutesInput, seconds: 0 });
+      setIsRunning(false);
     } else {
       alert("Please enter a valid time limit (at least 1 minute).");
     }
   };
 
   return (
-    <div className="bg-gradient-to-b from-[rgba(32,1,34,0.5)] to-[rgba(111,0,0,0.5)] rounded-lg shadow-lg p-5 w-full md:w-[calc(20%-20px)] mb-5">
-      <div className="mt-4 text-center">
-        <h2 className="text-2xl font-josefin text-center mb-4 text-white">Reminder</h2>
-        
-        {/* Timer settings */}
-        <div className="mb-6">
-          <label htmlFor="custom-minutes" className="mr-2 text-lg">Set Reminder Time:</label>
-          <input 
-            type="number" 
-            id="custom-minutes" 
-            className="w-20 p-2 bg-[rgba(32,1,34,0.25)] text-white rounded mb-2 focus:outline-none focus:ring-2 focus:ring-white/30"
-            min="1" 
-            value={minutesInput}
-            onChange={(e) => setMinutesInput(parseInt(e.target.value))}
-          />
-          <button 
-            className="ml-2 bg-[rgba(32,1,34,0.5)] hover:bg-[#200122] text-white border-none py-2 px-4 cursor-pointer rounded transition-colors"
-            onClick={applyCustomTime}
-          >
-            Apply
-          </button>
-        </div>
-        
-        {/* Clock display */}
-        <div className="relative w-44 h-44 mx-auto mb-8">
-          {/* Circle background */}
-          <div className="absolute w-full h-full border-2 border-white/30 rounded-full"></div>
-          
-          {/* Timer display */}
-          <div className="absolute w-full h-full flex items-center justify-center">
-            <div className="flex items-center text-5xl font-bold">
-              <div>
-                {time.minutes < 10 ? `0${time.minutes}` : time.minutes}
-              </div>
-              <div className="mx-1">:</div>
-              <div>
-                {time.seconds < 10 ? `0${time.seconds}` : time.seconds}
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Controls */}
-        <div className="flex justify-center space-x-4 mt-16">
-          <button 
-            className="bg-green-600/70 hover:bg-green-700 text-white border-none py-2 px-6 cursor-pointer rounded transition-colors"
-            onClick={startTimer}
-          >
-            Start
-          </button>
-          <button 
-            className="bg-red-600/70 hover:bg-red-700 text-white border-none py-2 px-6 cursor-pointer rounded transition-colors"
-            onClick={stopTimer}
-          >
-            Stop
-          </button>
-          <button 
-            className="bg-red-600/70 hover:bg-red-700 text-white border-none py-2 px-6 cursor-pointer rounded transition-colors"
-            onClick={resetTimer}
-          >
-            Reset
-          </button>
-        </div>
+    <div className="text-white rounded-lg flex flex-col items-center justify-center h-full">
+      <h2 className="text-2xl font-bold mb-4">Reminder</h2>
+      
+      {/* Timer settings */}
+      <div className="flex gap-2 items-center mb-4">
+        <input 
+          type="number" 
+          id="custom-minutes" 
+          className="w-24 p-2 rounded-lg bg-transparent border border-gray-400 focus:outline-none focus:border-white text-center"
+          min="1" 
+          value={minutesInput}
+          onChange={(e) => setMinutesInput(parseInt(e.target.value))}
+        />
+        <button 
+          className="px-4 py-2 rounded-lg bg-white bg-opacity-20 hover:bg-opacity-30 transition-colors"
+          onClick={applyCustomTime}
+        >
+          Set Time
+        </button>
+      </div>
+      
+      {/* Clock display */}
+      <div className="w-48 h-48 rounded-full border-4 border-white border-opacity-30 flex items-center justify-center mb-4">
+        <p className="text-5xl font-mono">
+          {time.minutes < 10 ? `0${time.minutes}` : time.minutes}:{time.seconds < 10 ? `0${time.seconds}` : time.seconds}
+        </p>
+      </div>
+      
+      {/* Controls */}
+      <div className="flex justify-center space-x-4">
+        <button 
+          className="px-6 py-2 rounded-lg bg-green-500 hover:bg-green-600 transition-colors text-white font-bold disabled:bg-gray-500"
+          onClick={startTimer}
+          disabled={isRunning}
+        >
+          Start
+        </button>
+        <button 
+          className="px-6 py-2 rounded-lg bg-yellow-500 hover:bg-yellow-600 transition-colors text-white font-bold disabled:bg-gray-500"
+          onClick={stopTimer}
+          disabled={!isRunning}
+        >
+          Stop
+        </button>
+        <button 
+          className="px-6 py-2 rounded-lg bg-red-500 hover:bg-red-600 transition-colors text-white font-bold"
+          onClick={resetTimer}
+        >
+          Reset
+        </button>
       </div>
 
       {/* Alarm sound */}
