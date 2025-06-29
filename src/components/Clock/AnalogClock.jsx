@@ -38,7 +38,7 @@ const AnalogClock = () => {
     <div className="flex flex-col items-center justify-center mt-10">
       <h2 className="text-3xl font-bold text-white mb-6">Analog Clock (IST)</h2>
 
-      <div className="relative w-80 h-80 bg-black border-[6px] border-white rounded-full shadow-lg">
+      <div className="relative w-80 h-80 bg-black border-4 border-white rounded-full shadow-lg">
         {/* Numbers */}
         {[...Array(12)].map((_, i) => {
           const angle = (i + 1) * 30;
@@ -47,11 +47,7 @@ const AnalogClock = () => {
               key={i}
               className="absolute top-1/2 left-1/2 text-white text-sm font-bold"
               style={{
-                transform: `
-                  rotate(${angle}deg)
-                  translate(0, -120px)
-                  rotate(-${angle}deg)
-                `,
+                transform: `rotate(${angle}deg) translate(0, -110px) rotate(-${angle}deg)`,
                 transformOrigin: "center",
               }}
             >
@@ -60,39 +56,33 @@ const AnalogClock = () => {
           );
         })}
 
-        {/* DEBUG TEST HAND — should always show */}
-        <div className="absolute top-1/2 left-1/2 w-[6px] h-24 bg-red-600 z-[60] -translate-x-1/2 -translate-y-full"></div>
-
         {/* Hour Hand */}
         <div
           ref={hourRef}
-          className="absolute w-[6px] h-20 bg-white top-1/2 left-1/2 rounded-sm"
+          className="absolute top-1/2 left-1/2 w-[8px] h-24 bg-white rounded-sm z-30"
           style={{
-            transform: "rotate(0deg)",
+            transform: "rotate(0deg) translate(-50%, -100%)",
             transformOrigin: "bottom center",
-            zIndex: 20,
           }}
         ></div>
 
         {/* Minute Hand */}
         <div
           ref={minuteRef}
-          className="absolute w-[4px] h-28 bg-white top-1/2 left-1/2 rounded-sm"
+          className="absolute top-1/2 left-1/2 w-[6px] h-28 bg-white rounded-sm z-40"
           style={{
-            transform: "rotate(0deg)",
+            transform: "rotate(0deg) translate(-50%, -100%)",
             transformOrigin: "bottom center",
-            zIndex: 30,
           }}
         ></div>
 
         {/* Second Hand */}
         <div
           ref={secondRef}
-          className="absolute w-[2px] h-32 bg-red-500 top-1/2 left-1/2"
+          className="absolute top-1/2 left-1/2 w-[2px] h-32 bg-red-500 z-50"
           style={{
-            transform: "rotate(0deg)",
+            transform: "rotate(0deg) translate(-50%, -100%)",
             transformOrigin: "bottom center",
-            zIndex: 40,
           }}
         ></div>
 
@@ -104,6 +94,8 @@ const AnalogClock = () => {
 };
 
 export default AnalogClock;
+
+
 
 
 
