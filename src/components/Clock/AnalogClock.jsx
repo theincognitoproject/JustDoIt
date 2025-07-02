@@ -8,7 +8,6 @@ const AnalogClock = () => {
   useEffect(() => {
     const updateClock = () => {
       const now = new Date();
-
       let ISTHours = now.getUTCHours() + 5;
       let ISTMinutes = now.getUTCMinutes() + 30;
       let ISTSeconds = now.getUTCSeconds();
@@ -25,9 +24,9 @@ const AnalogClock = () => {
       const minuteDeg = ((ISTMinutes + ISTSeconds / 60) / 60) * 360;
       const hourDeg = ((ISTHours % 12 + ISTMinutes / 60) / 12) * 360;
 
-      secondRef.current.style.transform = `translate(-50%, -100%) rotate(${secondDeg}deg)`;
-      minuteRef.current.style.transform = `translate(-50%, -100%) rotate(${minuteDeg}deg)`;
-      hourRef.current.style.transform = `translate(-50%, -100%) rotate(${hourDeg}deg)`;
+      if (hourRef.current) hourRef.current.style.transform = `rotate(${hourDeg}deg) translate(-50%, -100%)`;
+      if (minuteRef.current) minuteRef.current.style.transform = `rotate(${minuteDeg}deg) translate(-50%, -100%)`;
+      if (secondRef.current) secondRef.current.style.transform = `rotate(${secondDeg}deg) translate(-50%, -100%)`;
     };
 
     updateClock();
@@ -36,51 +35,71 @@ const AnalogClock = () => {
   }, []);
 
   return (
-    <div className="text-white p-4 rounded-lg flex flex-col items-center justify-center">
-      <h2 className="text-xl font-bold mb-2">Analog Clock</h2>
-      <div className="relative w-40 h-40">
-        {/* Clock Face */}
-        <div className="w-full h-full rounded-full border-2 border-white border-opacity-30"></div>
-        
+    <div className="flex flex-col items-center justify-center mt-10">
+      <h2 className="text-3xl font-bold text-white mb-6">Analog Clock (IST)</h2>
+
+      <div className="relative w-80 h-80 bg-black border-4 border-white rounded-full shadow-lg">
         {/* Numbers */}
-        {[...Array(12)].map((_, i) => (
-          <div 
-            key={i}
-            className="absolute w-full h-full"
-            style={{ transform: `rotate(${(i + 1) * 30}deg)` }}
-          >
-            <span 
-              className="absolute top-1 left-1/2 -translate-x-1/2 text-xs"
-              style={{ transform: `rotate(-${(i + 1) * 30}deg)` }}
+        {[...Array(12)].map((_, i) => {
+          const angle = (i + 1) * 30;
+          return (
+            <div
+              key={i}
+              className="absolute top-1/2 left-1/2 text-white text-sm font-bold"
+              style={{
+                transform: `rotate(${angle}deg) translate(0, -110px) rotate(-${angle}deg)`,
+                transformOrigin: "center",
+              }}
             >
               {i + 1}
-            </span>
-          </div>
-        ))}
+            </div>
+          );
+        })}
 
         {/* Hour Hand */}
         <div
           ref={hourRef}
-          className="absolute w-1 h-12 bg-white top-1/2 left-1/2 origin-bottom"
-          style={{ transform: 'translate(-50%, -100%) rotate(0deg)' }}
+          className="absolute top-1/2 left-1/2 w-[8px] h-24 bg-white rounded-sm z-30"
+          style={{
+            transform: "rotate(0deg) translate(-50%, -100%)",
+            transformOrigin: "bottom center",
+          }}
         ></div>
+
         {/* Minute Hand */}
         <div
           ref={minuteRef}
-          className="absolute w-0.5 h-16 bg-white top-1/2 left-1/2 origin-bottom"
-          style={{ transform: 'translate(-50%, -100%) rotate(0deg)' }}
+          className="absolute top-1/2 left-1/2 w-[6px] h-28 bg-white rounded-sm z-40"
+          style={{
+            transform: "rotate(0deg) translate(-50%, -100%)",
+            transformOrigin: "bottom center",
+          }}
         ></div>
+
         {/* Second Hand */}
         <div
           ref={secondRef}
-          className="absolute w-px h-20 bg-red-500 top-1/2 left-1/2 origin-bottom"
-          style={{ transform: 'translate(-50%, -100%) rotate(0deg)' }}
+          className="absolute top-1/2 left-1/2 w-[2px] h-32 bg-red-500 z-50"
+          style={{
+            transform: "rotate(0deg) translate(-50%, -100%)",
+            transformOrigin: "bottom center",
+          }}
         ></div>
-        {/* Center Circle */}
-        <div className="absolute w-2 h-2 bg-white rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+
+        {/* Center Dot */}
+        <div className="absolute w-4 h-4 bg-white rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50"></div>
       </div>
     </div>
   );
 };
 
 export default AnalogClock;
+
+
+
+
+
+
+
+
+
