@@ -24,9 +24,9 @@ const AnalogClock = () => {
       const minuteDeg = ((ISTMinutes + ISTSeconds / 60) / 60) * 360;
       const hourDeg = ((ISTHours % 12 + ISTMinutes / 60) / 12) * 360;
 
-      if (hourRef.current) hourRef.current.style.transform = `rotate(${hourDeg}deg)`;
-      if (minuteRef.current) minuteRef.current.style.transform = `rotate(${minuteDeg}deg)`;
-      if (secondRef.current) secondRef.current.style.transform = `rotate(${secondDeg}deg)`;
+      if (hourRef.current) hourRef.current.style.transform = `rotate(${hourDeg}deg) translate(-50%, -100%)`;
+      if (minuteRef.current) minuteRef.current.style.transform = `rotate(${minuteDeg}deg) translate(-50%, -100%)`;
+      if (secondRef.current) secondRef.current.style.transform = `rotate(${secondDeg}deg) translate(-50%, -100%)`;
     };
 
     updateClock();
