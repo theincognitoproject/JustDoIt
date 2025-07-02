@@ -1,29 +1,46 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const TodoList = () => {
   const [tasks, setTasks] = useState([]);
   const [taskInput, setTaskInput] = useState('');
   const [taskTimerInput, setTaskTimerInput] = useState('');
-  const [tick, setTick] = useState(0); // for triggering re-renders
+  const [tick, setTick] = useState(0); // forces re-render every second
 
-  // Load tasks from localStorage
+  const hasAlertedRef = useRef({}); // tracks which tasks have already shown the alert
+
+  // Load tasks on mount
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem('tasks')) || [];
     setTasks(saved);
   }, []);
 
-  // Save tasks to localStorage whenever they change
+  // Save tasks to localStorage when they change
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }, [tasks]);
 
-  // Global ticking interval every 1 second
+  // Ticking logic: every second, re-render and check for expired tasks
   useEffect(() => {
     const interval = setInterval(() => {
-      setTick((t) => t + 1); // trigger re-render every second
+      setTick((t) => {
+        tasks.forEach((task, i) => {
+          const remaining = getRemainingTime(task);
+          if (
+            !task.completed &&
+            task.duration > 0 &&
+            remaining === 0 &&
+            !hasAlertedRef.current[i]
+          ) {
+            alert(`⏰ Time's up for task: "${task.text}"`);
+            hasAlertedRef.current[i] = true;
+          }
+        });
+        return t + 1;
+      });
     }, 1000);
+
     return () => clearInterval(interval);
-  }, []);
+  }, [tasks]);
 
   const getRemainingTime = (task) => {
     if (!task.startTime || task.completed) return 0;
@@ -53,6 +70,7 @@ const TodoList = () => {
   const handleDeleteTask = (index) => {
     const updated = tasks.filter((_, i) => i !== index);
     setTasks(updated);
+    delete hasAlertedRef.current[index]; // clean up alert flag
   };
 
   const handleToggleComplete = (index) => {
@@ -132,6 +150,7 @@ const TodoList = () => {
 };
 
 export default TodoList;
+
 
 
 
