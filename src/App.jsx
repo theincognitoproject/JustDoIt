@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './components/header';
 import TodoList from './components/TodoList';
 import PomodoroTimer from './components/PomodoroTimer';
-import AnalogClock from "./components/Clock/AnalogClock";
+import AnalogClockComponent from "./components/Clock/AnalogClock";
 import DigitalClock from "./components/Clock/DigitalClock";
 import ReminderTimer from './components/Remindertimer';
 import Calendar from './components/Calender';
@@ -24,7 +24,7 @@ function App() {
         <div className="glass-effect p-4 lg:col-span-1 lg:row-span-1"><WeatherWidget /></div>
         
         <div className="glass-effect p-4 flex flex-col gap-4">
-          <div className="h-1/2"><AnalogClock /></div>
+          <div className="h-1/2"><AnalogClockComponent /></div>
           <div className="h-1/2"><DigitalClock /></div>
         </div>
 
